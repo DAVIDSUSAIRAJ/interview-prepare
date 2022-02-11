@@ -154,6 +154,47 @@ let re = arrObj.reduce((preVal,curVal)=>{
 console.log(re);
 
 
+
+
+// RAVANAN DEVELOPER
+function generatePyramid(n) {
+  let pyramid = "";
+  // i defines row number if n = 5, then i go from 1 to 5
+  for (let i = 1; i <= n; i++) {
+    let row = "";
+    let spaceCount = Math.ceil((n * 2 - 1) / 2 - i);
+    let space = "";
+    // s defines the space to put before values for each row
+    for (let s = 1; s <= spaceCount; s++) {
+      space += " ";
+    }
+    if (i === 1) {
+      pyramid += "\n" + space + i + "\n";
+    } else {
+      let temp = 0;
+      // j defines the number to print in each row
+      // row 2 => 2 + 2 - 1 => 3 => in second row we need 3 numbers to display
+      for (let j = i; j <= i + i - 1; j++) {
+        if (j > 9) {
+          if (temp > 9) {
+            temp = 0;
+          }
+          temp++;
+          row += temp;
+        } else {
+          row += j;
+        }
+      }
+      pyramid +=
+        space + row + row.split("").reverse().splice(1).join("") + "\n";
+    }
+  }
+  return pyramid;
+}
+
+console.log(generatePyramid(5));
+
+
   return (
     <div className="App">
       <h1>hello interview</h1>
