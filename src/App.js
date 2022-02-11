@@ -127,6 +127,33 @@ function App() {
   // console.log(foo.length);
   // console.log(foo.length);
 
+// let arr = [[4,6],[5,6]];
+// let newArr = [];
+// arr.forEach((arrvalue)=>{
+//  newArr = newArr.concat(arrvalue);
+
+// })
+// console.log(newArr);
+//  let resulut = newArr.reduce((previousValue,currentValue)=>{
+//     return previousValue+currentValue;
+// },9);
+// console.log(resulut);
+let arrObj = [{x:6},{x:5}];
+let newArr2 = [];
+let result2 = arrObj.forEach((ao)=>{
+newArr2.push(ao.x || ao.y );
+});
+console.log(newArr2);
+newArr2.reduce((preValue,currentValue)=>{
+ console.log(preValue+currentValue);   
+})
+let re = arrObj.reduce((preVal,curVal)=>{
+   
+   return preVal+curVal.x;
+},0);
+console.log(re);
+
+
   return (
     <div className="App">
       <h1>hello interview</h1>
