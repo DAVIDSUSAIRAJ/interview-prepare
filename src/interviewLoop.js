@@ -93,3 +93,178 @@ function generatePyramid(n) {
 }
 let result = generatePyramid(5);
 console.log(result);
+
+let arrObj = [{ name: "a" }, { name: "b" }, { name: "c" }];
+let result = arrObj.map((obj) => {
+  return { ...obj, name: `${obj.name}1` };
+});
+console.log(result);
+
+let arr = [12, "abc", "56", 0]; //12560
+arr.splice(1, 1);
+console.log(arr.join(""));
+
+console.log(Math.random() * (100 - 10) + 10);
+
+let st = "david is bad boy";
+console.log(st.includes("b"));
+console.log(st.match("bad"));
+
+books = [
+  { title: "C++", author: "Bjarne" },
+  { title: "Java", author: "James" },
+  { title: "Python", author: "Guido" },
+  { title: "Java", author: "James" },
+];
+
+let jsonObject = books.map(JSON.stringify);
+let uniqueSet = new Set(jsonObject);
+let uniqueAray = Array.from(uniqueSet).map(JSON.parse);
+console.log(uniqueAray);
+
+let arr = [2, 2, 2, 5, 6, 6, 4];
+let newArr = [];
+for (let i = 0; i < arr.length; i++) {
+  if (newArr.indexOf(arr[i]) == -1 || arr[i] == "") {
+    newArr.push(arr[i]);
+  }
+}
+console.log(newArr);
+
+books = [
+  { title: "C++", author: "Bjarne" },
+  { title: "Java", author: "James" },
+  { title: "Python", author: "Guido" },
+  { title: "Java", author: "James" },
+];
+
+let uniqueArray = [];
+let uniqueObject = {};
+for (key in books) {
+  let objTitle = books[key]["title"];
+  console.log(objTitle);
+  // uniqueObject[objTitle] = books[i];
+  uniqueObject[objTitle] = books[key];
+}
+for (i in uniqueObject) {
+  uniqueArray.push(uniqueObject[i]);
+}
+console.log(uniqueArray);
+
+// *****
+// ****
+// ***
+// **
+// *
+// ANS;
+
+for (let i = 1; i <= 5; i++) {
+  let star = "";
+  for (let j = i; j <= 5; j++) {
+    star += "*";
+  }
+  console.log(star);
+}
+
+// SIMILARLY BUT NUMBER THATS ALL
+// 1111
+// 222
+// 33
+// 4
+Output: for (let i = 1; i <= 4; i++) {
+  let numpr = "";
+  for (let j = i; j <= 4; j++) {
+    numpr += i;
+  }
+  console.log(numpr);
+}
+
+// Output:
+
+// 1234
+// 234
+// 34
+// 4
+
+//ANS
+
+for (let i = 1; i <= 4; i++) {
+  let numb = "";
+  for (let j = i; j <= 4; j++) {
+    numb += j;
+  }
+  console.log(numb);
+}
+
+// 12345
+// 1234
+// 123
+// 12
+// 1
+// ANS;
+for (let i = 5; i >= 1; i--) {
+  let numb = "";
+  for (let j = 1; j <= i; j++) {
+    numb += j;
+  }
+  console.log(numb);
+}
+
+// *****
+// *****
+// *****
+// *****
+// *****
+// ANS
+
+for (let i = 1; i <= 5; i++) {
+  let numb = "";
+  for (let j = 1; j <= 5; j++) {
+    numb += "*";
+  }
+  console.log(numb);
+}
+
+// *
+// **
+// ***
+// ****
+// *****
+//ANS
+
+for (let i = 1; i <= 5; i++) {
+  let numb = "";
+  for (let j = 1; j <= i; j++) {
+    numb += "*";
+  }
+  console.log(numb);
+}
+
+function generatePyramid(n) {
+  let pyramid = "  ";
+  for (let i = 1; i <= n; i++) {
+    let space = "";
+    let spaceCount = n - i;
+    for (let s = 1; s <= spaceCount; s++) {
+      space += " ";
+    }
+    if (i == 1) {
+      pyramid += space + i + "\n";
+    } else {
+      let incrementNo = "";
+      let decrementNo = "";
+      for (let j = i; j <= i + i - 1; j++) {
+        incrementNo += " " + j;
+      }
+
+      let lastNumber = incrementNo.charAt(incrementNo.length - 1);
+      for (let k = lastNumber; k > i; k--) {
+        decrementNo += k - 1 + " ";
+      }
+      pyramid += space + incrementNo + " " + decrementNo + "\n";
+    }
+  }
+  return pyramid;
+}
+let result = generatePyramid(5);
+console.log(result);
